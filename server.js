@@ -8,7 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
+
 
 app.post("/send-sos", async (req, res) => {
   const { message, location, contacts } = req.body;
